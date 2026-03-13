@@ -16,6 +16,60 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Typewriter effect for site title
+    var titleEl = document.getElementById('site-title');
+    var sloganEl = document.getElementById('site-slogan');
+    if (titleEl && titleEl.dataset.text) {
+        var parts = titleEl.dataset.text.split('|');
+        var firstName = parts[0] || '';
+        var lastName = parts[1] || '';
+        var fullText = firstName + lastName;
+        var i = 0;
+
+        var cursor = document.createElement('span');
+        cursor.className = 'typewriter-cursor';
+        titleEl.textContent = '';
+        titleEl.appendChild(cursor);
+
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (reducedMotion) {
+            titleEl.innerHTML = firstName + '<span class="glow">' + lastName + '</span>';
+            if (sloganEl) sloganEl.classList.add('visible');
+        } else {
+            function typeNext() {
+                if (i < fullText.length) {
+                    var isLastName = i >= firstName.length;
+
+                    if (i === firstName.length && !titleEl.querySelector('span.glow')) {
+                        cursor.remove();
+                        var span = document.createElement('span');
+                        titleEl.appendChild(span);
+                        titleEl.appendChild(cursor);
+                    }
+
+                    var glowSpan = titleEl.querySelector('span:not(.typewriter-cursor)');
+                    if (isLastName && glowSpan) {
+                        glowSpan.textContent += fullText[i];
+                    } else {
+                        cursor.before(document.createTextNode(fullText[i]));
+                    }
+
+                    i++;
+                    setTimeout(typeNext, 90 + Math.random() * 60);
+                } else {
+                    setTimeout(function () {
+                        cursor.remove();
+                        var span = titleEl.querySelector('span:not(.typewriter-cursor)');
+                        if (span) span.classList.add('glow');
+                        if (sloganEl) sloganEl.classList.add('visible');
+                    }, 400);
+                }
+            }
+            setTimeout(typeNext, 300);
+        }
+    }
+
     // Intersection Observer — scroll-triggered reveal animations
     var revealElements = document.querySelectorAll('.reveal');
     if (revealElements.length > 0 && 'IntersectionObserver' in window) {
