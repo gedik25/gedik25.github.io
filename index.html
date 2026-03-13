@@ -3,104 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Gedik | Ana Sayfa</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <title>Ali Gedik — Kişisel Portfolyo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1 class="site-title">Ali Gedik</h1>
-            <p class="site-slogan">Yazılım & Teknoloji Tutkunu</p>
+
+<header>
+    <div class="header-content">
+        <h1 class="site-title">Ali <span>Gedik</span></h1>
+        <p class="site-slogan">Bilgisayar Mühendisliği Öğrencisi &amp; Web Geliştirici</p>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html" class="active">Ana Sayfa</a></li>
+        <li><a href="about.html">Hakkımda</a></li>
+        <li><a href="interests.html">İlgi Alanlarım</a></li>
+        <li><a href="contact.html">İletişim</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section class="hero reveal">
+        <h2>Merhaba!</h2>
+        <p>
+            Ben <strong>Ali Gedik</strong>. Yazılım dünyasına meraklı bir
+            bilgisayar mühendisliği öğrencisiyim. Web teknolojileri, algoritmalar
+            ve yeni şeyler keşfetmeyi seviyorum. Bu site hem kişisel tanıtım
+            alanım hem de laboratuvar ödevlerimin sergilendiği yerdir.
+        </p>
+    </section>
+
+    <section class="css-info-box reveal">
+        <p>
+            Bu bölümde CSS'in temel özelliklerini (<strong>display</strong>, <strong>width</strong>,
+            <strong>height</strong>, <strong>margin</strong>, <strong>padding</strong>,
+            <strong>border</strong>, <strong>selector</strong>) uygulayarak iki sütunlu bir
+            sayfa düzeni oluşturulmuştur. Yalnızca HTML5 + CSS3 kullanılmıştır.
+        </p>
+    </section>
+
+    <section class="two-column-area reveal">
+        <div class="column main-content">
+            <h2>İçerik</h2>
+            <p>
+                Bu alanda örnek içerik metinleri bulunmaktadır. CSS özellikleriyle bu
+                metinler arasında <strong>boşluklar</strong> (line-height) ve hizalamalar
+                (text-align) düzenlenmektedir.
+            </p>
+            <p>
+                Önce CSS ile kutuları / alanları yan yana getirmeyi, ardından alt alta
+                yerleştirmeyi öğrendik. Şimdi ise CSS seçicilerini kullanarak <strong>grup</strong>
+                ve <strong>hiyerarşik</strong> seçimler yapmayı göreceğiz.
+            </p>
         </div>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="index.html" class="active">Ana Sayfa</a></li>
-            <li><a href="about.html">Hakkımda</a></li>
-            <li><a href="interests.html">İlgi Alanlarım</a></li>
-            <li><a href="contact.html">İletişim</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <section class="hero">
-            <h2>Hoş Geldiniz</h2>
+        <div class="column sidebar">
+            <h2>Yan Menü / Bilgi</h2>
             <p>
-                Merhaba! Ben Ali Gedik. Bu site, Web Programlama dersi kapsamında hazırladığım
-                kişisel tanıtım ve mini portfolyo sayfamdır. Burada hakkımda bilgi edinebilir,
-                ilgi alanlarımı keşfedebilir ve benimle iletişime geçebilirsiniz.
+                Bu alan yan menü veya bilgi kısmıdır. CSS ile genişlik (width), yükseklik
+                (height), kenar boşlukları (margin/padding) ve kenarlık (border) özelliklerini
+                kullanarak düzenleyebiliriz.
             </p>
-        </section>
-
-        <section class="quick-links" id="hizli-baglantilar">
-            <h2>Hızlı Bağlantılar</h2>
-            <div class="link-cards">
-                <a href="about.html" class="card">
-                    <span class="card-icon">&#9733;</span>
-                    <h3>Hakkımda</h3>
-                    <p>Kim olduğumu, eğitim geçmişimi ve hedeflerimi öğrenin.</p>
-                </a>
-                <a href="interests.html" class="card">
-                    <span class="card-icon">&#9830;</span>
-                    <h3>İlgi Alanlarım</h3>
-                    <p>Hobilerimi ve tutkularımı keşfedin.</p>
-                </a>
-                <a href="contact.html" class="card">
-                    <span class="card-icon">&#9993;</span>
-                    <h3>İletişim</h3>
-                    <p>Benimle iletişime geçmek için tıklayın.</p>
-                </a>
-            </div>
-        </section>
-
-        <section class="css-info-box">
             <p>
-                Bu bölümde CSS'in temel özelliklerini (<strong>display</strong>, <strong>width</strong>,
-                <strong>height</strong>, <strong>margin</strong>, <strong>padding</strong>,
-                <strong>border</strong>, <strong>selector</strong>) uygulayarak iki sütunlu bir
-                sayfa düzeni oluşturulmuştur. Yalnızca HTML5 + CSS3 kullanılmıştır.
+                Öğrendiklerimizi hiyerarşik ve grup seçicilerle uygulayıp farklı bölümlere
+                stil verebiliriz. Kaynak koda
+                <a href="https://github.com/gedik25/gedik25.github.io" target="_blank" rel="noopener">GitHub repo</a>
+                üzerinden erişebilirsiniz.
             </p>
-        </section>
+        </div>
+    </section>
 
-        <section class="two-column-area">
-            <div class="column main-content">
-                <h2>İçerik</h2>
-                <p>
-                    Bu alanda örnek içerik metinleri bulunmaktadır. CSS özellikleriyle bu
-                    metinler arasında <strong>boşluklar</strong> (line-height) ve hizalamalar
-                    (text-align) düzenlenmektedir.
-                </p>
-                <p>
-                    Önce CSS ile kutuları / alanları yan yana getirmeyi, ardından alt alta
-                    yerleştirmeyi öğrendik. Şimdi ise CSS seçicilerini kullanarak <strong>grup</strong>
-                    ve <strong>hiyerarşik</strong> seçimler yapmayı göreceğiz.
-                </p>
-            </div>
-            <div class="column sidebar">
-                <h2>Yan Menü / Bilgi</h2>
-                <p>
-                    Bu alan yan menü veya bilgi kısmıdır. CSS ile genişlik (width), yükseklik
-                    (height), kenar boşlukları (margin/padding) ve kenarlık (border) özelliklerini
-                    kullanarak düzenleyebiliriz.
-                </p>
-                <p>
-                    Öğrendiklerimizi hiyerarşik ve grup seçicilerle uygulayıp farklı bölümlere
-                    stil verebiliriz. Kaynak koda
-                    <a href="https://github.com/gedik25/gedik25.github.io" target="_blank" rel="noopener">GitHub repo</a>
-                    üzerinden erişebilirsiniz.
-                </p>
-            </div>
-        </section>
-    </main>
+    <section class="reveal">
+        <h2>Keşfet</h2>
+        <div class="link-cards">
+            <a href="about.html" class="card">
+                <span class="card-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </span>
+                <h3>Hakkımda</h3>
+                <p>Biyografi, eğitim ve hedeflerim</p>
+            </a>
+            <a href="interests.html" class="card">
+                <span class="card-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </span>
+                <h3>İlgi Alanlarım</h3>
+                <p>Hobiler, yetenekler ve araştırmalarım</p>
+            </a>
+            <a href="contact.html" class="card">
+                <span class="card-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </span>
+                <h3>İletişim</h3>
+                <p>Bana ulaşın, birlikte çalışalım</p>
+            </a>
+        </div>
+    </section>
+</main>
 
-    <footer>
-        <p>&copy; 2026 Ali Gedik &mdash; Web Programlama Dersi</p>
-    </footer>
+<footer>
+    <p>&copy; 2025 Ali Gedik — Web Programlama Laboratuvar Ödevleri</p>
+</footer>
 
-    <script src="scripts/main.js"></script>
+<button class="theme-toggle" id="theme-toggle" aria-label="Tema değiştir">
+    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F1F5F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+
+<script src="scripts/main.js"></script>
 </body>
 </html>

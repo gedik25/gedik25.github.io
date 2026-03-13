@@ -1,33 +1,59 @@
+// Apply saved theme before DOM renders to prevent flash
+(function () {
+    var saved = localStorage.getItem('theme');
+    if (saved === 'dark') document.body.classList.add('dark');
+})();
+
 document.addEventListener('DOMContentLoaded', function () {
+
+    // Theme toggle
+    var toggleBtn = document.getElementById('theme-toggle');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', function () {
+            document.body.classList.toggle('dark');
+            var isDark = document.body.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    }
+
+    // Intersection Observer — scroll-triggered reveal animations
+    var revealElements = document.querySelectorAll('.reveal');
+    if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        revealElements.forEach(function (el, i) {
+            el.style.transitionDelay = (i * 80) + 'ms';
+            observer.observe(el);
+        });
+    } else {
+        revealElements.forEach(function (el) { el.classList.add('visible'); });
+    }
+
+    // Active nav link highlight
+    var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a').forEach(function (link) {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+    });
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
         anchor.addEventListener('click', function (e) {
-            var targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            var target = document.querySelector(targetId);
+            var target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 e.preventDefault();
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
-    });
-
-    // Fade-in on scroll using IntersectionObserver
-    var observerOptions = { threshold: 0.15, rootMargin: '0px 0px -40px 0px' };
-
-    var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('section, .timeline-item, .contact-card, .interests-section').forEach(function (el) {
-        el.classList.add('fade-observe');
-        observer.observe(el);
     });
 
     // Contact form handler
@@ -37,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
             var btn = form.querySelector('.btn-submit');
             btn.textContent = 'Gönderildi!';
-            btn.style.background = '#2e8b57';
+            btn.style.background = '#16A34A';
             setTimeout(function () {
                 btn.textContent = 'Gönder';
                 btn.style.background = '';
