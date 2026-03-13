@@ -37,12 +37,29 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
             var btn = form.querySelector('.btn-submit');
             btn.textContent = 'Gönderildi!';
-            btn.style.background = '#7eb8a2';
+            btn.style.background = '#2e8b57';
             setTimeout(function () {
                 btn.textContent = 'Gönder';
                 btn.style.background = '';
                 form.reset();
+                togglePhone();
             }, 2000);
         });
     }
 });
+
+function togglePhone() {
+    var phoneGroup = document.getElementById('phone-group');
+    var phoneInput = document.getElementById('phone');
+    var prefPhone = document.getElementById('pref-phone');
+    if (!phoneGroup || !phoneInput || !prefPhone) return;
+
+    if (prefPhone.checked) {
+        phoneGroup.style.display = 'block';
+        phoneInput.required = true;
+    } else {
+        phoneGroup.style.display = 'none';
+        phoneInput.required = false;
+        phoneInput.value = '';
+    }
+}
