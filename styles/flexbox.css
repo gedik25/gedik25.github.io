@@ -1,16 +1,14 @@
 /* ══════════════════════════════════════════
    FLEXBOX LAB — Ali Gedik
    Ödev: WebLab Flexbox Uygulaması
-   Portfolyo tasarımıyla uyumlu
    ══════════════════════════════════════════ */
 
-/* ── Design Tokens (portfolyoyla aynı) ── */
 :root {
     --color-primary: #2563EB;
     --color-primary-light: #3B82F6;
-    --color-primary-dim: rgba(37, 99, 235, 0.08);
+    --color-primary-dim: rgba(37, 99, 235, 0.1);
     --color-cta: #F97316;
-    --color-bg: #F8FAFC;
+    --color-bg: #F1F5F9;
     --color-surface: #FFFFFF;
     --color-text: #1E293B;
     --color-text-muted: #64748B;
@@ -20,51 +18,57 @@
     --font-display: 'Caveat', cursive;
     --font-body: 'Quicksand', sans-serif;
 
-    --radius: 12px;
-    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --radius: 10px;
+    --transition: 0.25s ease;
+
+    /* Kutu renkleri */
+    --box1-bg: rgba(37, 99, 235, 0.08);
+    --box1-border: rgba(37, 99, 235, 0.25);
+    --box1-text: #2563EB;
+    --box2-bg: rgba(22, 163, 74, 0.08);
+    --box2-border: rgba(22, 163, 74, 0.25);
+    --box2-text: #15803D;
+    --box3-bg: rgba(249, 115, 22, 0.08);
+    --box3-border: rgba(249, 115, 22, 0.25);
+    --box3-text: #C2410C;
 }
 
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* ══════════════════════════
    ANA YAPI — flex column, 100vh
    ══════════════════════════ */
 .wrapper {
     display: flex;
-    flex-direction: column;   /* Lab şartı: flex-direction column */
-    height: 100vh;            /* Lab şartı: 100vh */
+    flex-direction: column;   /* Lab: flex-direction column */
+    min-height: 100vh;        /* Lab: 100vh */
     font-family: var(--font-body);
     background: var(--color-bg);
     color: var(--color-text);
-    overflow: hidden;
+    overflow-y: auto;
 }
 
 /* ══════════════════════════
-   1) NAVBAR — 10vh
+   ① NAVBAR — 10vh
    ══════════════════════════ */
 .fb-navbar {
-    display: flex;                        /* Lab şartı: display flex */
-    justify-content: space-between;       /* Lab şartı: justify-content space-between */
-    align-items: center;                  /* Lab şartı: align-items center */
-    height: 10vh;                         /* Lab şartı: height vh */
+    display: flex;
+    justify-content: space-between;  /* Lab: justify-content space-between */
+    align-items: center;             /* Lab: align-items center */
+    height: 10vh;
     padding: 0 2rem;
     background: var(--color-surface);
     border-bottom: 1px solid var(--color-border);
-    box-shadow: 0 1px 4px rgba(30, 41, 59, 0.06);
+    flex-shrink: 0;
 }
 
 .fb-logo {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--color-text);
     text-decoration: none;
 }
-
 .fb-logo span { color: var(--color-primary); }
 
 .fb-nav-links {
@@ -72,32 +76,30 @@
     display: flex;
     gap: 1.5rem;
 }
-
 .fb-nav-links a {
     text-decoration: none;
     color: var(--color-text-muted);
     font-weight: 600;
-    font-size: 0.88rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
     transition: color var(--transition);
 }
-
 .fb-nav-links a:hover { color: var(--color-primary); }
 
 /* ══════════════════════════
-   2) HERO — 30vh
+   ② HERO — 30vh
    ══════════════════════════ */
 .fb-hero {
     display: flex;
-    flex-direction: row;             /* Lab şartı: flex-direction row */
-    justify-content: space-between;  /* Lab şartı: justify-content space-between */
-    align-items: stretch;            /* Lab şartı: align-items stretch */
-    height: 30vh;                    /* Lab şartı: height vh */
-    padding: 1.5rem 2rem;
+    flex-direction: row;             /* Lab: flex-direction row */
+    justify-content: space-between;  /* Lab: justify-content space-between */
+    align-items: stretch;            /* Lab: align-items stretch */
+    height: 30vh;
+    padding: 1.25rem 2rem;
     gap: 1.5rem;
     background: var(--color-surface);
     border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
 }
 
 .fb-hero-text {
@@ -105,195 +107,254 @@
     flex-direction: column;
     justify-content: center;
     flex: 1;
+    gap: 0.5rem;
 }
 
 .fb-hero-text h1 {
     font-family: var(--font-display);
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
     font-weight: 700;
     color: var(--color-text);
-    margin-bottom: 0.5rem;
     line-height: 1.2;
 }
-
 .fb-hero-text h1 span { color: var(--color-primary); }
 
 .fb-hero-text p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--color-text-muted);
-    margin-bottom: 1rem;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .fb-btn {
     display: inline-block;
-    padding: 0.6rem 1.4rem;
+    padding: 0.5rem 1.2rem;
     background: var(--color-primary);
     color: #fff;
     border: none;
-    border-radius: var(--radius);
+    border-radius: 6px;
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
     cursor: pointer;
     text-decoration: none;
-    transition: background var(--transition), transform var(--transition);
     align-self: flex-start;
+    transition: background var(--transition), transform var(--transition);
+}
+.fb-btn:hover { background: var(--color-primary-light); transform: translateY(-1px); }
+
+/* Hero Resim — align-items:stretch sayesinde tam yüksekliği doldurur */
+.fb-hero-image {
+    flex: 0 0 40%;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
 }
 
-.fb-btn:hover { background: var(--color-primary-light); transform: translateY(-2px); }
-
-.fb-hero-image {
-    flex: 0 0 38%;             /* align-items: stretch ile yüksekliği dolduracak */
-    background: var(--color-primary-dim);
-    border: 2px dashed var(--color-border);
-    border-radius: var(--radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-muted);
-    font-size: 0.9rem;
-    font-style: italic;
+.fb-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /* ══════════════════════════
-   3) KARTLAR — 30vh
+   ③ KARTLAR — 30vh
    ══════════════════════════ */
 .fb-cards {
-    display: flex;             /* Lab şartı: display flex */
-    flex-wrap: wrap;           /* Lab şartı: flex-wrap wrap */
-    gap: 0.75rem;              /* Lab şartı: gap */
-    height: 30vh;              /* Lab şartı: height vh */
-    padding: 1rem 2rem;
-    align-content: center;
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+    padding: 0.75rem 2rem;
     background: var(--color-bg);
     border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
+    gap: 0.5rem;
+}
+
+.fb-section-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.fb-cards-inner {
+    display: flex;        /* Lab: display flex */
+    flex-wrap: wrap;      /* Lab: flex-wrap wrap */
+    gap: 0.75rem;         /* Lab: gap */
+    flex: 1;
     overflow: hidden;
 }
 
 .fb-card {
-    flex: 1 1 calc(16.666% - 0.75rem);
-    min-width: 100px;
+    flex: 1 1 calc(25% - 0.75rem);
+    min-width: 120px;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
-    padding: 0.75rem;
+    padding: 0.75rem 1rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-    cursor: default;
+    justify-content: space-between;
+    gap: 0.3rem;
+    transition: transform var(--transition), box-shadow var(--transition);
 }
-
 .fb-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(30, 41, 59, 0.1);
-    border-color: var(--color-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(30,41,59,0.1);
 }
 
-.fb-card-num {
-    font-family: var(--font-display);
-    font-size: 1.6rem;
+.fb-card-title {
+    font-size: 0.9rem;
     font-weight: 700;
-    color: var(--color-primary);
-    line-height: 1;
+    color: var(--color-text);
 }
-
-.fb-card-label {
-    font-size: 0.75rem;
+.fb-card-desc {
+    font-size: 0.78rem;
     color: var(--color-text-muted);
-    margin-top: 4px;
-    font-weight: 600;
+    flex: 1;
 }
+.fb-card-btn {
+    padding: 0.3rem 0.9rem;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background var(--transition);
+}
+.fb-card-btn:hover { background: var(--color-primary-light); }
 
 /* ══════════════════════════
-   4) FLEX-GROW — 20vh
+   ④ FLEX-GROW — 20vh
    ══════════════════════════ */
 .fb-grow {
     display: flex;
-    align-items: stretch;      /* Lab şartı: align-items stretch */
-    height: 20vh;              /* Lab şartı: height vh */
-    gap: 0.75rem;
-    padding: 0.75rem 2rem;
+    flex-direction: column;
+    height: 20vh;
+    padding: 0.6rem 2rem;
     background: var(--color-bg);
     border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
+    gap: 0.5rem;
+}
+
+.fb-grow-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.fb-section-label {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-right: 0.25rem;
+}
+
+.fb-tag {
+    font-size: 0.7rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.fb-grow-boxes {
+    display: flex;         /* Lab: display flex */
+    align-items: stretch;  /* Lab: align-items stretch */
+    gap: 0.75rem;
+    flex: 1;
+    overflow: hidden;
 }
 
 .fb-box {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0.75rem 1rem;
     border-radius: var(--radius);
-    font-family: var(--font-display);
-    font-weight: 700;
-    gap: 0.25rem;
-    transition: transform var(--transition);
+    gap: 0.3rem;
 }
 
-.fb-box:hover { transform: scaleY(1.02); }
+.fb-box strong {
+    font-size: 0.95rem;
+    font-weight: 700;
+}
 
-.fb-box span {
-    font-size: 0.7rem;
-    font-family: var(--font-body);
-    font-weight: 600;
+.fb-box code {
+    font-size: 0.75rem;
+    font-family: 'Courier New', monospace;
     opacity: 0.8;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
 .fb-box--1 {
-    flex-grow: 1;             /* Lab şartı: flex-grow 1 */
-    background: var(--color-primary-dim);
-    border: 1.5px solid var(--color-border);
-    color: var(--color-primary);
-    font-size: 1.4rem;
+    flex-grow: 1;                       /* Lab: flex-grow 1 */
+    background: var(--box1-bg);
+    border: 1.5px solid var(--box1-border);
+    color: var(--box1-text);
 }
 
 .fb-box--2 {
-    flex-grow: 2;             /* Lab şartı: flex-grow 2 */
-    background: rgba(249, 115, 22, 0.07);
-    border: 1.5px solid var(--color-border);
-    color: var(--color-cta);
-    font-size: 1.4rem;
+    flex-grow: 2;                       /* Lab: flex-grow 2 */
+    background: var(--box2-bg);
+    border: 1.5px solid var(--box2-border);
+    color: var(--box2-text);
 }
 
 .fb-box--3 {
-    flex-grow: 1;             /* Lab şartı: flex-grow 1 */
-    background: rgba(22, 163, 74, 0.07);
-    border: 1.5px solid var(--color-border);
-    color: var(--color-success);
-    font-size: 1.4rem;
+    flex-grow: 1;                       /* Lab: flex-grow 1 */
+    background: var(--box3-bg);
+    border: 1.5px solid var(--box3-border);
+    color: var(--box3-text);
 }
 
+.fb-box-btn {
+    margin-top: 0.25rem;
+    padding: 0.3rem 0.9rem;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+    transition: opacity var(--transition);
+}
+.fb-box-btn:hover { opacity: 0.85; }
+.fb-box-btn--blue   { background: #2563EB; }
+.fb-box-btn--green  { background: #16A34A; }
+.fb-box-btn--orange { background: #F97316; }
+
 /* ══════════════════════════
-   5) FOOTER — 10vh
+   ⑤ FOOTER — 10vh
    ══════════════════════════ */
 .fb-footer {
     display: flex;
-    justify-content: center;   /* Lab şartı: justify-content center */
-    align-items: center;       /* Lab şartı: align-items center */
-    height: 10vh;              /* Lab şartı: height vh */
+    justify-content: center;  /* Lab: justify-content center */
+    align-items: center;      /* Lab: align-items center */
+    height: 10vh;
     background: var(--color-surface);
     border-top: 1px solid var(--color-border);
-    gap: 1rem;
+    gap: 1.5rem;
+    flex-shrink: 0;
 }
-
-.fb-footer p {
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-}
-
+.fb-footer p { font-size: 0.82rem; color: var(--color-text-muted); }
 .fb-footer a {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 700;
     color: var(--color-primary);
     text-decoration: none;
     transition: color var(--transition);
 }
-
 .fb-footer a:hover { color: var(--color-cta); }
 
 /* ── DARK MODE ── */
@@ -303,7 +364,9 @@ body.dark {
     --color-text: #F1F5F9;
     --color-text-muted: #94A3B8;
     --color-border: #334155;
-    --color-primary-dim: rgba(37, 99, 235, 0.15);
+    --box1-bg: rgba(37, 99, 235, 0.15);
+    --box2-bg: rgba(22, 163, 74, 0.15);
+    --box3-bg: rgba(249, 115, 22, 0.12);
 }
 
 /* ── DARK MODE TOGGLE ── */
@@ -312,19 +375,18 @@ body.dark {
     bottom: 24px;
     right: 24px;
     z-index: 200;
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     border: 1px solid var(--color-border);
     border-radius: 50%;
     background: var(--color-surface);
-    box-shadow: 0 4px 20px rgba(30, 41, 59, 0.08);
+    box-shadow: 0 4px 16px rgba(30,41,59,0.12);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background var(--transition), transform var(--transition);
 }
-
 .theme-toggle:hover { transform: scale(1.1); }
 .theme-toggle .icon-sun { display: none; }
 .theme-toggle .icon-moon { display: block; }

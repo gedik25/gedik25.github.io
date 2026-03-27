@@ -32,7 +32,7 @@
         <ul class="fb-nav-links">
             <li><a href="index.html">Ana Sayfa</a></li>
             <li><a href="about.html">Hakkımda</a></li>
-            <li><a href="interests.html">İlgi Alanları</a></li>
+            <li><a href="interests.html">Dersler</a></li>
             <li><a href="contact.html">İletişim</a></li>
         </ul>
     </nav>
@@ -40,66 +40,96 @@
     <!-- ② HERO — 30vh | flex-direction:row | justify-content:space-between | align-items:stretch -->
     <section class="fb-hero">
         <div class="fb-hero-text">
-            <h1>Flexbox ile <span>Modern</span> Düzenler</h1>
-            <p>
-                Bu sayfa Flexbox'ın temel özelliklerini — yatay/dikey hizalama,
-                flex-grow, flex-direction ve vh birimleri — uygulamalı olarak göstermektedir.
-            </p>
-            <a href="#kartlar" class="fb-btn">Keşfet</a>
+            <h1>Hero <span>Başlık</span></h1>
+            <p>Açıklama metni</p>
+            <a href="#kartlar" class="fb-btn">Buton</a>
         </div>
         <div class="fb-hero-image">
-            Görsel Alanı<br>
-            <small>align-items: stretch</small>
+            <img src="images/hero.jpg" alt="Hero görseli">
         </div>
     </section>
 
     <!-- ③ KARTLAR — 30vh | display:flex | flex-wrap:wrap | gap -->
     <section class="fb-cards" id="kartlar">
-        <div class="fb-card">
-            <span class="fb-card-num">01</span>
-            <span class="fb-card-label">HTML5</span>
-        </div>
-        <div class="fb-card">
-            <span class="fb-card-num">02</span>
-            <span class="fb-card-label">CSS3</span>
-        </div>
-        <div class="fb-card">
-            <span class="fb-card-num">03</span>
-            <span class="fb-card-label">Flexbox</span>
-        </div>
-        <div class="fb-card">
-            <span class="fb-card-num">04</span>
-            <span class="fb-card-label">JavaScript</span>
-        </div>
-        <div class="fb-card">
-            <span class="fb-card-num">05</span>
-            <span class="fb-card-label">Git</span>
-        </div>
-        <div class="fb-card">
-            <span class="fb-card-num">06</span>
-            <span class="fb-card-label">GitHub</span>
+        <div class="fb-section-title">Kartlar Bölümü</div>
+        <div class="fb-cards-inner">
+            <div class="fb-card">
+                <h4 class="fb-card-title">Kart Başlığı</h4>
+                <p class="fb-card-desc">Kısa açıklama</p>
+                <button class="fb-card-btn">Buton</button>
+            </div>
+            <div class="fb-card">
+                <h4 class="fb-card-title">Kart Başlığı</h4>
+                <p class="fb-card-desc">Kısa açıklama</p>
+                <button class="fb-card-btn">Buton</button>
+            </div>
+            <div class="fb-card">
+                <h4 class="fb-card-title">Kart Başlığı</h4>
+                <p class="fb-card-desc">Kısa açıklama</p>
+                <button class="fb-card-btn">Buton</button>
+            </div>
+            <div class="fb-card">
+                <h4 class="fb-card-title">Kart Başlığı</h4>
+                <p class="fb-card-desc">Kısa açıklama</p>
+                <button class="fb-card-btn">Buton</button>
+            </div>
         </div>
     </section>
 
     <!-- ④ FLEX-GROW — 20vh | flex-grow:1-2-1 | align-items:stretch -->
     <section class="fb-grow">
-        <div class="fb-box fb-box--1">
-            flex-grow: 1
-            <span>Kutu 1</span>
+        <div class="fb-grow-header">
+            <span class="fb-section-label">Flex Grow Uygulama</span>
+            <span class="fb-tag">flex-grow</span>
+            <span class="fb-tag">height: 20vh</span>
+            <span class="fb-tag">stretch (esneme)</span>
         </div>
-        <div class="fb-box fb-box--2">
-            flex-grow: 2
-            <span>Kutu 2</span>
+        <div class="fb-grow-boxes">
+            <div class="fb-box fb-box--1">
+                <strong>1 Kutu</strong>
+                <code>flex-grow: 1;</code>
+                <button class="fb-box-btn fb-box-btn--blue">Buton</button>
+            </div>
+            <div class="fb-box fb-box--2">
+                <strong>2 Kutu</strong>
+                <code>flex-grow: 2;</code>
+                <button class="fb-box-btn fb-box-btn--green">Buton</button>
+            </div>
+            <div class="fb-box fb-box--3">
+                <strong>3 Kutu</strong>
+                <code>flex-grow: 1;</code>
+                <button class="fb-box-btn fb-box-btn--orange">Buton</button>
+            </div>
         </div>
-        <div class="fb-box fb-box--3">
-            flex-grow: 1
-            <span>Kutu 3</span>
+    </section>
+
+    <!-- ④b FLEX-GROW RECAP — butonsuz sade versiyon -->
+    <section class="fb-grow fb-grow--recap">
+        <div class="fb-grow-header">
+            <span class="fb-section-label">Flex Grow Uygulama</span>
+            <span class="fb-tag">flex-grow</span>
+            <span class="fb-tag">height: 20vh</span>
+            <span class="fb-tag">stretch (esneme)</span>
+        </div>
+        <div class="fb-grow-boxes">
+            <div class="fb-box fb-box--1">
+                <strong>1 Kutu</strong>
+                <code>flex-grow: 1;</code>
+            </div>
+            <div class="fb-box fb-box--2">
+                <strong>2 Kutu</strong>
+                <code>flex-grow: 2;</code>
+            </div>
+            <div class="fb-box fb-box--3">
+                <strong>3 Kutu</strong>
+                <code>flex-grow: 1;</code>
+            </div>
         </div>
     </section>
 
     <!-- ⑤ FOOTER — 10vh | justify-content:center | align-items:center -->
     <footer class="fb-footer">
-        <p>&copy; 2025 Ali Gedik — Flexbox Lab Ödevi</p>
+        <p>&copy; 2026 — Temel Flexbox Örneği</p>
         <a href="index.html">← Ana Sayfaya Dön</a>
     </footer>
 
@@ -112,11 +142,9 @@
 </button>
 
 <script>
-// Apply saved theme
 (function () {
     if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
 })();
-
 document.getElementById('theme-toggle').addEventListener('click', function () {
     document.body.classList.toggle('dark');
     localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
