@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Lab — Ali Gedik</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/flexbox.css">
+</head>
+<body>
+
+<!--
+    ════════════════════════════════════════
+    FLEXBOX LAB ÖDEVİ — Zorunlu CSS Kontrol:
+    ✔ Wrapper: display:flex + flex-direction:column + 100vh
+    ✔ Navbar : justify-content:space-between + align-items:center
+    ✔ Hero   : flex-direction:row + justify-content:space-between + align-items:stretch
+    ✔ Kartlar: display:flex + flex-wrap:wrap + gap
+    ✔ Grow   : flex-grow:1-2-1 + align-items:stretch
+    ✔ Footer : justify-content:center + align-items:center
+    ✔ height : 10vh / 30vh / 30vh / 20vh / 10vh
+    ════════════════════════════════════════
+-->
+
+<div class="wrapper">
+
+    <!-- ① NAVBAR — 10vh | justify-content:space-between | align-items:center -->
+    <nav class="fb-navbar">
+        <a href="index.html" class="fb-logo">Ali <span>Gedik</span></a>
+        <ul class="fb-nav-links">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="about.html">Hakkımda</a></li>
+            <li><a href="interests.html">İlgi Alanları</a></li>
+            <li><a href="contact.html">İletişim</a></li>
+        </ul>
+    </nav>
+
+    <!-- ② HERO — 30vh | flex-direction:row | justify-content:space-between | align-items:stretch -->
+    <section class="fb-hero">
+        <div class="fb-hero-text">
+            <h1>Flexbox ile <span>Modern</span> Düzenler</h1>
+            <p>
+                Bu sayfa Flexbox'ın temel özelliklerini — yatay/dikey hizalama,
+                flex-grow, flex-direction ve vh birimleri — uygulamalı olarak göstermektedir.
+            </p>
+            <a href="#kartlar" class="fb-btn">Keşfet</a>
+        </div>
+        <div class="fb-hero-image">
+            Görsel Alanı<br>
+            <small>align-items: stretch</small>
+        </div>
+    </section>
+
+    <!-- ③ KARTLAR — 30vh | display:flex | flex-wrap:wrap | gap -->
+    <section class="fb-cards" id="kartlar">
+        <div class="fb-card">
+            <span class="fb-card-num">01</span>
+            <span class="fb-card-label">HTML5</span>
+        </div>
+        <div class="fb-card">
+            <span class="fb-card-num">02</span>
+            <span class="fb-card-label">CSS3</span>
+        </div>
+        <div class="fb-card">
+            <span class="fb-card-num">03</span>
+            <span class="fb-card-label">Flexbox</span>
+        </div>
+        <div class="fb-card">
+            <span class="fb-card-num">04</span>
+            <span class="fb-card-label">JavaScript</span>
+        </div>
+        <div class="fb-card">
+            <span class="fb-card-num">05</span>
+            <span class="fb-card-label">Git</span>
+        </div>
+        <div class="fb-card">
+            <span class="fb-card-num">06</span>
+            <span class="fb-card-label">GitHub</span>
+        </div>
+    </section>
+
+    <!-- ④ FLEX-GROW — 20vh | flex-grow:1-2-1 | align-items:stretch -->
+    <section class="fb-grow">
+        <div class="fb-box fb-box--1">
+            flex-grow: 1
+            <span>Kutu 1</span>
+        </div>
+        <div class="fb-box fb-box--2">
+            flex-grow: 2
+            <span>Kutu 2</span>
+        </div>
+        <div class="fb-box fb-box--3">
+            flex-grow: 1
+            <span>Kutu 3</span>
+        </div>
+    </section>
+
+    <!-- ⑤ FOOTER — 10vh | justify-content:center | align-items:center -->
+    <footer class="fb-footer">
+        <p>&copy; 2025 Ali Gedik — Flexbox Lab Ödevi</p>
+        <a href="index.html">← Ana Sayfaya Dön</a>
+    </footer>
+
+</div>
+
+<!-- Dark Mode Toggle -->
+<button class="theme-toggle" id="theme-toggle" aria-label="Tema değiştir">
+    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F1F5F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+
+<script>
+// Apply saved theme
+(function () {
+    if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
+})();
+
+document.getElementById('theme-toggle').addEventListener('click', function () {
+    document.body.classList.toggle('dark');
+    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+});
+</script>
+
+</body>
+</html>

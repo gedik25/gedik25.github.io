@@ -1,0 +1,332 @@
+/* ══════════════════════════════════════════
+   FLEXBOX LAB — Ali Gedik
+   Ödev: WebLab Flexbox Uygulaması
+   Portfolyo tasarımıyla uyumlu
+   ══════════════════════════════════════════ */
+
+/* ── Design Tokens (portfolyoyla aynı) ── */
+:root {
+    --color-primary: #2563EB;
+    --color-primary-light: #3B82F6;
+    --color-primary-dim: rgba(37, 99, 235, 0.08);
+    --color-cta: #F97316;
+    --color-bg: #F8FAFC;
+    --color-surface: #FFFFFF;
+    --color-text: #1E293B;
+    --color-text-muted: #64748B;
+    --color-border: #E2E8F0;
+    --color-success: #16A34A;
+
+    --font-display: 'Caveat', cursive;
+    --font-body: 'Quicksand', sans-serif;
+
+    --radius: 12px;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ══════════════════════════
+   ANA YAPI — flex column, 100vh
+   ══════════════════════════ */
+.wrapper {
+    display: flex;
+    flex-direction: column;   /* Lab şartı: flex-direction column */
+    height: 100vh;            /* Lab şartı: 100vh */
+    font-family: var(--font-body);
+    background: var(--color-bg);
+    color: var(--color-text);
+    overflow: hidden;
+}
+
+/* ══════════════════════════
+   1) NAVBAR — 10vh
+   ══════════════════════════ */
+.fb-navbar {
+    display: flex;                        /* Lab şartı: display flex */
+    justify-content: space-between;       /* Lab şartı: justify-content space-between */
+    align-items: center;                  /* Lab şartı: align-items center */
+    height: 10vh;                         /* Lab şartı: height vh */
+    padding: 0 2rem;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 4px rgba(30, 41, 59, 0.06);
+}
+
+.fb-logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.fb-logo span { color: var(--color-primary); }
+
+.fb-nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.fb-nav-links a {
+    text-decoration: none;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    font-size: 0.88rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color var(--transition);
+}
+
+.fb-nav-links a:hover { color: var(--color-primary); }
+
+/* ══════════════════════════
+   2) HERO — 30vh
+   ══════════════════════════ */
+.fb-hero {
+    display: flex;
+    flex-direction: row;             /* Lab şartı: flex-direction row */
+    justify-content: space-between;  /* Lab şartı: justify-content space-between */
+    align-items: stretch;            /* Lab şartı: align-items stretch */
+    height: 30vh;                    /* Lab şartı: height vh */
+    padding: 1.5rem 2rem;
+    gap: 1.5rem;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.fb-hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+.fb-hero-text h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.fb-hero-text h1 span { color: var(--color-primary); }
+
+.fb-hero-text p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.fb-btn {
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background var(--transition), transform var(--transition);
+    align-self: flex-start;
+}
+
+.fb-btn:hover { background: var(--color-primary-light); transform: translateY(-2px); }
+
+.fb-hero-image {
+    flex: 0 0 38%;             /* align-items: stretch ile yüksekliği dolduracak */
+    background: var(--color-primary-dim);
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* ══════════════════════════
+   3) KARTLAR — 30vh
+   ══════════════════════════ */
+.fb-cards {
+    display: flex;             /* Lab şartı: display flex */
+    flex-wrap: wrap;           /* Lab şartı: flex-wrap wrap */
+    gap: 0.75rem;              /* Lab şartı: gap */
+    height: 30vh;              /* Lab şartı: height vh */
+    padding: 1rem 2rem;
+    align-content: center;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.fb-card {
+    flex: 1 1 calc(16.666% - 0.75rem);
+    min-width: 100px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    cursor: default;
+}
+
+.fb-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(30, 41, 59, 0.1);
+    border-color: var(--color-primary);
+}
+
+.fb-card-num {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.fb-card-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+/* ══════════════════════════
+   4) FLEX-GROW — 20vh
+   ══════════════════════════ */
+.fb-grow {
+    display: flex;
+    align-items: stretch;      /* Lab şartı: align-items stretch */
+    height: 20vh;              /* Lab şartı: height vh */
+    gap: 0.75rem;
+    padding: 0.75rem 2rem;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.fb-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: var(--radius);
+    font-family: var(--font-display);
+    font-weight: 700;
+    gap: 0.25rem;
+    transition: transform var(--transition);
+}
+
+.fb-box:hover { transform: scaleY(1.02); }
+
+.fb-box span {
+    font-size: 0.7rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.fb-box--1 {
+    flex-grow: 1;             /* Lab şartı: flex-grow 1 */
+    background: var(--color-primary-dim);
+    border: 1.5px solid var(--color-border);
+    color: var(--color-primary);
+    font-size: 1.4rem;
+}
+
+.fb-box--2 {
+    flex-grow: 2;             /* Lab şartı: flex-grow 2 */
+    background: rgba(249, 115, 22, 0.07);
+    border: 1.5px solid var(--color-border);
+    color: var(--color-cta);
+    font-size: 1.4rem;
+}
+
+.fb-box--3 {
+    flex-grow: 1;             /* Lab şartı: flex-grow 1 */
+    background: rgba(22, 163, 74, 0.07);
+    border: 1.5px solid var(--color-border);
+    color: var(--color-success);
+    font-size: 1.4rem;
+}
+
+/* ══════════════════════════
+   5) FOOTER — 10vh
+   ══════════════════════════ */
+.fb-footer {
+    display: flex;
+    justify-content: center;   /* Lab şartı: justify-content center */
+    align-items: center;       /* Lab şartı: align-items center */
+    height: 10vh;              /* Lab şartı: height vh */
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    gap: 1rem;
+}
+
+.fb-footer p {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.fb-footer a {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+.fb-footer a:hover { color: var(--color-cta); }
+
+/* ── DARK MODE ── */
+body.dark {
+    --color-bg: #0F172A;
+    --color-surface: #1E293B;
+    --color-text: #F1F5F9;
+    --color-text-muted: #94A3B8;
+    --color-border: #334155;
+    --color-primary-dim: rgba(37, 99, 235, 0.15);
+}
+
+/* ── DARK MODE TOGGLE ── */
+.theme-toggle {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 200;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    background: var(--color-surface);
+    box-shadow: 0 4px 20px rgba(30, 41, 59, 0.08);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition), transform var(--transition);
+}
+
+.theme-toggle:hover { transform: scale(1.1); }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+body.dark .theme-toggle .icon-sun { display: block; }
+body.dark .theme-toggle .icon-moon { display: none; }
