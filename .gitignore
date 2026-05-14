@@ -1,6 +1,7 @@
+# İşletim Sistemi ve IDE Dosyaları
 .DS_Store
-Web_Lab2.docx
-Lab_3 (1).docx
-WebLab_Flexbox_Uygulama.docx
-Web_Lab_Hafta_5.docx.pdf
-David_Roberts_-_Rouen_Cathedral_ca_1796-1826_-_(MeisterDrucke-1181721).jpg
+
+# Laboratuvar & Ödev Kaynak Dokümanları
+odev_kaynaklari/
+*.docx
+*.pdf
