@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="tr" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geleceğin Teknolojileri Zirvesi 2026 — Etkinlik Kayıt Sayfası</title>
+    <meta name="description" content="Bootstrap 5 ve JavaScript kullanılarak geliştirilen etkileşimli etkinlik kayıt ve başvuru sayfası.">
+    
+    <!-- Bootstrap 5.3 CDN CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom Premium Styles -->
+    <link rel="stylesheet" href="styles/hafta7.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="index.html">
+            <span class="p-2 rounded-3 bg-primary text-white d-inline-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            </span>
+            <span class="text-gradient">TechSummit '26</span>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Menüyü aç">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center gap-2">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Ana Sayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#hakkinda">Zirve Hakkında</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#program">Program &amp; Konular</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#kayit">Kayıt Formu</a>
+                </li>
+                <li class="nav-item ms-lg-3">
+                    <button id="btnTemaDegistir" class="btn-theme-toggle" title="Açık/Koyu Tema Değiştir" aria-label="Tema Değiştir">
+                        <!-- Icon will be updated via JS, initial Moon/Sun -->
+                        <svg id="temaIkon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero-section text-center overflow-hidden">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3 py-2 mb-4 floating-badge fw-medium">
+                        ✨ Geleceği Şekillendiren Fikirler — 15-16 Ekim 2026
+                    </span>
+                    <h1 class="display-4 fw-bold mb-4">
+                        Geleceğin Teknolojileri Zirvesi'ne <br>
+                        <span class="text-gradient">Hoş Geldiniz</span>
+                    </h1>
+                    <p class="lead text-secondary mb-5 px-md-4">
+                        Yapay zeka, otonom sistemler, kuantum bilişim ve kullanıcı deneyimi trendlerini sektörün öncülerinden dinleyin. Sınırlı sayıdaki yerinizi ayırtmak için hemen kaydolun.
+                    </p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="#kayit" class="btn btn-gradient px-5 py-3 rounded-pill shadow-sm">Hemen Başvur</a>
+                        <a href="#hakkinda" class="btn btn-custom-outline px-5 py-3 rounded-pill">Detaylı Bilgi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section / Hakkında -->
+    <section id="hakkinda" class="py-5">
+        <div class="container py-4">
+            <div class="row align-items-center gap-4 gap-lg-0">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-3">Zirve Hakkında</h2>
+                    <p class="text-secondary mb-4">
+                        Bu etkinlik, <strong>Bootstrap 5</strong> ve <strong>JavaScript</strong> mimarileri kullanılarak tam duyarlı (responsive) ve modern bir kullanıcı deneyimi sunmak amacıyla tasarlanmıştır. Katılımcılar iki gün boyunca interaktif atölyeler, anahtar konuşmalar ve networking seanslarına dahil olacaklar.
+                    </p>
+                    <div class="d-flex flex-column gap-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <span class="p-2 rounded-circle bg-success-subtle text-success">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            </span>
+                            <span>Alanında uzman 20+ global ve yerel konuşmacı</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <span class="p-2 rounded-circle bg-success-subtle text-success">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            </span>
+                            <span>Sertifikalı uygulamalı derin öğrenme ve UI/UX atölyeleri</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <span class="p-2 rounded-circle bg-success-subtle text-success">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            </span>
+                            <span>Sektör lideri şirketlerle birebir tanışma fırsatı</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card card-custom p-4 rounded-4 border-0 shadow">
+                        <div class="card-body text-center p-lg-4">
+                            <h3 class="h4 fw-bold mb-2 text-gradient">Canlı Geri Sayım</h3>
+                            <p class="text-secondary small mb-4">Zirvenin başlamasına kalan tahmini süre</p>
+                            <div class="d-flex justify-content-center gap-3">
+                                <div class="p-3 rounded-3 bg-secondary-subtle min-w-80">
+                                    <div class="h2 fw-bold mb-0">154</div>
+                                    <div class="small text-secondary">Gün</div>
+                                </div>
+                                <div class="p-3 rounded-3 bg-secondary-subtle min-w-80">
+                                    <div class="h2 fw-bold mb-0">08</div>
+                                    <div class="small text-secondary">Saat</div>
+                                </div>
+                                <div class="p-3 rounded-3 bg-secondary-subtle min-w-80">
+                                    <div class="h2 fw-bold mb-0">42</div>
+                                    <div class="small text-secondary">Dakika</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cards Section / Konular & Program -->
+    <section id="program" class="py-5 bg-secondary-subtle bg-opacity-25">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Öne Çıkan Konu Başlıkları</h2>
+                <p class="text-secondary">Zirvede işlenecek temel teknoloji alanları ve odak noktaları</p>
+            </div>
+            
+            <!-- Bootstrap Grid & Cards -->
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-custom h-100 p-3 rounded-4 shadow-sm border">
+                        <div class="card-body">
+                            <div class="icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                            </div>
+                            <h3 class="h5 fw-bold mb-2">Yapay Zeka &amp; LLM</h3>
+                            <p class="text-secondary small mb-4">
+                                Üretken yapay zeka modelleri, büyük dil modellerinin (LLM) entegrasyonu ve otonom ajanların gelecekteki rolleri.
+                            </p>
+                            <span class="badge bg-primary-subtle text-primary mt-auto">Salon A • 10:00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-custom h-100 p-3 rounded-4 shadow-sm border">
+                        <div class="card-body">
+                            <div class="icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/><line x1="12" y1="22" x2="12" y2="15.5"/><polyline points="22 8.5 12 15.5 2 8.5"/><polyline points="2 15.5 12 8.5 22 15.5"/><line x1="12" y1="2" x2="12" y2="8.5"/></svg>
+                            </div>
+                            <h3 class="h5 fw-bold mb-2">Web3 &amp; Blokzincir</h3>
+                            <p class="text-secondary small mb-4">
+                                Merkeziyetsiz finans (DeFi), akıllı sözleşmelerin güvenliği ve ölçeklenebilir dağıtık ağ mimarileri.
+                            </p>
+                            <span class="badge bg-purple-subtle text-purple" style="background-color: rgba(168, 85, 247, 0.1); color: #a855f7;">Salon B • 13:30</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-custom h-100 p-3 rounded-4 shadow-sm border">
+                        <div class="card-body">
+                            <div class="icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+                            </div>
+                            <h3 class="h5 fw-bold mb-2">Modern UX/UI &amp; Frontend</h3>
+                            <p class="text-secondary small mb-4">
+                                Kullanıcı merkezli tasarım ilkeleri, mikro-animasyonlar, web performans optimizasyonu ve yeni nesil arayüzler.
+                            </p>
+                            <span class="badge bg-pink-subtle text-pink" style="background-color: rgba(236, 72, 153, 0.1); color: #ec4899;">Salon C • 16:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section id="kayit" class="py-5">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card card-custom p-4 p-md-5 rounded-4 shadow-sm border">
+                        <div class="text-center mb-4">
+                            <h2 class="fw-bold text-gradient">Kayıt Başvuru Formu</h2>
+                            <p class="text-secondary small">Zirveye katılım için lütfen aşağıdaki bilgileri eksiksiz doldurunuz.</p>
+                        </div>
+                        
+                        <!-- Form -->
+                        <form id="etkinlikKayitFormu" novalidate>
+                            <div class="row g-3">
+                                <!-- Ad Soyad -->
+                                <div class="col-md-6">
+                                    <label for="adSoyad" class="form-label fw-medium small">Adınız ve Soyadınız <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="adSoyad" placeholder="Örn. Ali Gedik" required>
+                                </div>
+                                
+                                <!-- E-posta -->
+                                <div class="col-md-6">
+                                    <label for="eposta" class="form-label fw-medium small">E-posta Adresiniz <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="eposta" placeholder="Örn. ornek@posta.com" required>
+                                </div>
+                                
+                                <!-- Katılım Türü / Rolü -->
+                                <div class="col-12">
+                                    <label for="katilimTuru" class="form-label fw-medium small">Katılım Türü <span class="text-danger">*</span></label>
+                                    <select class="form-select" id="katilimTuru" required>
+                                        <option value="" selected disabled>Lütfen bir seçenek belirleyin...</option>
+                                        <option value="Öğrenci">Öğrenci</option>
+                                        <option value="Akademisyen">Akademisyen</option>
+                                        <option value="Sektör Profesyoneli">Sektör Profesyoneli</option>
+                                        <option value="Girişimci / Yatırımcı">Girişimci / Yatırımcı</option>
+                                    </select>
+                                </div>
+                                
+                                <!-- İlgilenilen Alanlar (Checkboxes) -->
+                                <div class="col-12 mt-3">
+                                    <label class="form-label fw-medium small d-block mb-2">Öncelikli İlgilendiğiniz Alanlar</label>
+                                    <div class="d-flex flex-wrap gap-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Yapay Zeka" id="alanYapayZeka">
+                                            <label class="form-check-label small text-secondary" for="alanYapayZeka">Yapay Zeka</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Web &amp; Mobil" id="alanWeb">
+                                            <label class="form-check-label small text-secondary" for="alanWeb">Web &amp; Mobil</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Siber Güvenlik" id="alanGuvenlik">
+                                            <label class="form-check-label small text-secondary" for="alanGuvenlik">Siber Güvenlik</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Tasarım (UI/UX)" id="alanTasarim">
+                                            <label class="form-check-label small text-secondary" for="alanTasarim">Tasarım (UI/UX)</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Mesaj / Beklentiler -->
+                                <div class="col-12 mt-3">
+                                    <label for="mesaj" class="form-label fw-medium small">Zirveden Beklentileriniz veya Ek Notlarınız</label>
+                                    <textarea class="form-control" id="mesaj" rows="3" placeholder="Zirvede özellikle görmek istediğiniz konular veya eklemek istedikleriniz..."></textarea>
+                                </div>
+                                
+                                <!-- Alert Placeholder for Validation -->
+                                <div class="col-12">
+                                    <div id="formUyari" class="alert alert-danger d-none my-2 text-center small py-2 rounded-3" role="alert"></div>
+                                </div>
+                                
+                                <!-- Submit Button -->
+                                <div class="col-12 mt-4 text-center">
+                                    <button type="submit" class="btn btn-gradient px-5 py-3 rounded-pill w-100 shadow-sm">Kaydı Tamamla</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Dynamic Result Area -->
+                        <div id="sonucAlani"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="py-4 border-top">
+    <div class="container text-center">
+        <p class="text-secondary small mb-1">
+            &copy; 2026 Ali Gedik — 7. Hafta Bootstrap + JavaScript Laboratuvar Uygulaması
+        </p>
+        <p class="text-secondary small mb-0 opacity-75" style="font-size: 0.75rem;">
+            Geleceğin Teknolojileri Zirvesi bir demo proje senaryosudur.
+        </p>
+    </div>
+</footer>
+
+<!-- Bootstrap 5.3 CDN JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS logic -->
+<script src="scripts/hafta7.js"></script>
+
+</body>
+</html>
