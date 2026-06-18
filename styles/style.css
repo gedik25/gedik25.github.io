@@ -1266,6 +1266,10 @@ body.dark .btn-cv:hover {
     margin-top: var(--space-md);
 }
 
+/* ── SCROLL MARGIN FOR PROJECTS SECTION ── */
+#projects {
+    scroll-margin-top: 100px;
+}
 
 @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
