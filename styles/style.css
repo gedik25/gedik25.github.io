@@ -1323,6 +1323,7 @@ body.dark .btn-cv:hover {
 
 .hero-actions, .bio-actions {
     display: flex;
+    justify-content: center;
     gap: var(--space-sm);
     margin-top: var(--space-md);
 }
