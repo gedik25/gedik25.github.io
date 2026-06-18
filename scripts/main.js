@@ -110,22 +110,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Contact form handler
-    var form = document.querySelector('.contact-form');
-    if (form) {
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            var btn = form.querySelector('.btn-submit');
-            btn.textContent = 'Gönderildi!';
-            btn.style.background = '#16A34A';
-            setTimeout(function () {
-                btn.textContent = 'Gönder';
-                btn.style.background = '';
-                form.reset();
-            }, 2000);
-        });
-    }
-
     // Project filtering handler
     var filterBtns = document.querySelectorAll('.filter-btn');
     var projectCards = document.querySelectorAll('.project-card');
