@@ -122,24 +122,68 @@ document.addEventListener('DOMContentLoaded', function () {
                 btn.textContent = 'Gönder';
                 btn.style.background = '';
                 form.reset();
-                togglePhone();
             }, 2000);
         });
     }
+
+    // Project filtering handler
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var projectCards = document.querySelectorAll('.project-card');
+
+    if (filterBtns.length > 0 && projectCards.length > 0) {
+        filterBtns.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                // Remove active class from all filter buttons
+                filterBtns.forEach(function (b) {
+                    b.classList.remove('active');
+                });
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                var filterValue = btn.getAttribute('data-filter');
+
+                projectCards.forEach(function (card) {
+                    var category = card.getAttribute('data-category');
+
+                    if (filterValue === 'all' || category === filterValue) {
+                        card.classList.remove('hide');
+                        card.classList.add('show');
+                    } else {
+                        card.classList.remove('show');
+                        card.classList.add('hide');
+                    }
+                });
+            });
+        });
+    }
+
+    // Scroll to Top behavior
+    var scrollToTopBtn = document.getElementById('scroll-to-top');
+    if (scrollToTopBtn) {
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Dynamic Tab Title Focus/Blur
+    var originalTitle = document.title;
+    window.addEventListener('blur', function () {
+        document.title = 'Buralardayım, beklerim! 👋';
+    });
+    window.addEventListener('focus', function () {
+        document.title = originalTitle;
+    });
 });
 
-function togglePhone() {
-    var phoneGroup = document.getElementById('phone-group');
-    var phoneInput = document.getElementById('phone');
-    var prefPhone = document.getElementById('pref-phone');
-    if (!phoneGroup || !phoneInput || !prefPhone) return;
 
-    if (prefPhone.checked) {
-        phoneGroup.style.display = 'block';
-        phoneInput.required = true;
-    } else {
-        phoneGroup.style.display = 'none';
-        phoneInput.required = false;
-        phoneInput.value = '';
-    }
-}

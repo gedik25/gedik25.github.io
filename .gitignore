@@ -1,7 +1,23 @@
 # İşletim Sistemi ve IDE Dosyaları
 .DS_Store
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-# Laboratuvar & Ödev Kaynak Dokümanları
+# Akademik / Ödev Kaynakları
 odev_kaynaklari/
 *.docx
-*.pdf
+Muhammet_Ali_Gedik_CV2.docx
+
+# AI Asistan & Yapılacaklar Takip Dosyaları
+yapilanlar.md
+yapilacaklar.md
+kisisel_bilgiler.txt
+
+# Portfolyo İndirme Dosyaları (Takip edilmeli)
+# (Özgeçmiş PDF dosyasının Git'e eklenebilmesi için *.pdf engeli kaldırılmıştır)
+!Muhammet_Ali_Gedik_CV2.pdf

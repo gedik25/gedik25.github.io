@@ -34,6 +34,17 @@
     --shadow-md: 0 4px 20px rgba(30, 41, 59, 0.08);
     --shadow-lg: 0 12px 40px rgba(30, 41, 59, 0.1);
     --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Tech Badge Variables (Light Mode) */
+    --badge-cpp-bg: #FEF2F2; --badge-cpp-color: #DC2626; --badge-cpp-border: #FCA5A5; --badge-cpp-glow: rgba(220, 38, 38, 0.25);
+    --badge-java-bg: #FFF7ED; --badge-java-color: #EA580C; --badge-java-border: #FDBA74; --badge-java-glow: rgba(234, 88, 12, 0.25);
+    --badge-python-bg: #EFF6FF; --badge-python-color: #2563EB; --badge-python-border: #93C5FD; --badge-python-glow: rgba(37, 99, 235, 0.25);
+    --badge-swift-bg: #FFF1F2; --badge-swift-color: #F43F5E; --badge-swift-border: #FDA4AF; --badge-swift-glow: rgba(244, 63, 94, 0.25);
+    --badge-dart-bg: #F0FDFA; --badge-dart-color: #0D9488; --badge-dart-border: #5EEAD4; --badge-dart-glow: rgba(13, 148, 136, 0.25);
+    --badge-db-bg: #FAF5FF; --badge-db-color: #7C3AED; --badge-db-border: #D8B4FE; --badge-db-glow: rgba(124, 58, 237, 0.25);
+    --badge-network-bg: #EEF2FF; --badge-network-color: #4F46E5; --badge-network-border: #C7D2FE; --badge-network-glow: rgba(79, 70, 229, 0.25);
+    --badge-asm-bg: #F8FAFC; --badge-asm-color: #475569; --badge-asm-border: #CBD5E1; --badge-asm-glow: rgba(71, 85, 105, 0.25);
+    --badge-web-bg: #F0FDF4; --badge-web-color: #16A34A; --badge-web-border: #86EFAC; --badge-web-glow: rgba(22, 163, 74, 0.25);
 }
 
 *, *::before, *::after {
@@ -833,6 +844,55 @@ footer p {
 body.dark .theme-toggle .icon-sun { display: block; }
 body.dark .theme-toggle .icon-moon { display: none; }
 
+/* ── SCROLL TO TOP BUTTON ── */
+.scroll-to-top {
+    position: fixed;
+    bottom: 84px;
+    right: 24px;
+    z-index: 200;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(0.9);
+    transition: background var(--transition), 
+                box-shadow var(--transition), 
+                transform var(--transition),
+                opacity var(--transition),
+                visibility var(--transition),
+                color var(--transition);
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: var(--shadow-lg);
+    background: var(--color-primary-dim);
+    color: var(--color-primary);
+}
+
+.scroll-to-top svg {
+    transition: transform var(--transition);
+}
+
+.scroll-to-top:hover svg {
+    transform: translateY(-2px);
+}
+
 /* ── DARK MODE ── */
 body.dark {
     --color-bg: #0F172A;
@@ -844,6 +904,17 @@ body.dark {
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
     --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.35);
+
+    /* Tech Badge Variables (Dark Mode) */
+    --badge-cpp-bg: rgba(239, 68, 68, 0.12); --badge-cpp-color: #FCA5A5; --badge-cpp-border: rgba(239, 68, 68, 0.3); --badge-cpp-glow: rgba(239, 68, 68, 0.4);
+    --badge-java-bg: rgba(249, 115, 22, 0.12); --badge-java-color: #FDBA74; --badge-java-border: rgba(249, 115, 22, 0.3); --badge-java-glow: rgba(249, 115, 22, 0.4);
+    --badge-python-bg: rgba(59, 130, 246, 0.12); --badge-python-color: #93C5FD; --badge-python-border: rgba(59, 130, 246, 0.3); --badge-python-glow: rgba(59, 130, 246, 0.4);
+    --badge-swift-bg: rgba(244, 63, 94, 0.12); --badge-swift-color: #FDA4AF; --badge-swift-border: rgba(244, 63, 94, 0.3); --badge-swift-glow: rgba(244, 63, 94, 0.4);
+    --badge-dart-bg: rgba(20, 184, 166, 0.12); --badge-dart-color: #5EEAD4; --badge-dart-border: rgba(20, 184, 166, 0.3); --badge-dart-glow: rgba(20, 184, 166, 0.4);
+    --badge-db-bg: rgba(139, 92, 246, 0.12); --badge-db-color: #C084FC; --badge-db-border: rgba(139, 92, 246, 0.3); --badge-db-glow: rgba(139, 92, 246, 0.4);
+    --badge-network-bg: rgba(99, 102, 241, 0.12); --badge-network-color: #A5B4FC; --badge-network-border: rgba(99, 102, 241, 0.3); --badge-network-glow: rgba(99, 102, 241, 0.4);
+    --badge-asm-bg: rgba(100, 116, 139, 0.15); --badge-asm-color: #CBD5E1; --badge-asm-border: rgba(100, 116, 139, 0.3); --badge-asm-glow: rgba(100, 116, 139, 0.4);
+    --badge-web-bg: rgba(34, 197, 94, 0.12); --badge-web-color: #86EFAC; --badge-web-border: rgba(34, 197, 94, 0.3); --badge-web-glow: rgba(34, 197, 94, 0.4);
 }
 
 body.dark .sidebar {
@@ -867,7 +938,334 @@ body.dark .card-icon svg { color: var(--color-primary-light); }
 
 @media (max-width: 768px) {
     .theme-toggle { bottom: 16px; right: 16px; width: 44px; height: 44px; }
+    .scroll-to-top { bottom: 68px; right: 16px; width: 44px; height: 44px; }
 }
+
+/* ── PROJECTS SECTION ── */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout! */
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--accent-color, var(--color-border)) !important;
+    border-radius: var(--radius);
+    padding: var(--space-lg);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                box-shadow 0.4s ease, 
+                border-color 0.4s ease,
+                border-left-color 0.4s ease,
+                opacity 0.4s ease;
+}
+
+/* Card hover dynamic states */
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px -5px rgba(0, 0, 0, 0.1), 0 8px 16px -6px rgba(0, 0, 0, 0.05);
+    border-color: var(--accent-color, var(--color-primary)) !important;
+}
+
+body.dark .project-card:hover {
+    box-shadow: 0 12px 24px -5px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.02);
+}
+
+.project-card.show {
+    display: flex !important;
+    animation: cardFadeIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.project-card.hide {
+    display: none !important;
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Left Accent Categories */
+.project-card.accent-cpp { --accent-color: var(--badge-cpp-color); }
+.project-card.accent-java { --accent-color: var(--badge-java-color); }
+.project-card.accent-python { --accent-color: var(--badge-python-color); }
+.project-card.accent-swift { --accent-color: var(--badge-swift-color); }
+.project-card.accent-dart { --accent-color: var(--badge-dart-color); }
+.project-card.accent-db { --accent-color: var(--badge-db-color); }
+.project-card.accent-network { --accent-color: var(--badge-network-color); }
+.project-card.accent-asm { --accent-color: var(--badge-asm-color); }
+
+.project-card h3 {
+    font-family: var(--font-body) !important;
+    font-weight: 700 !important;
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    margin-top: 0;
+    margin-bottom: var(--space-xs);
+}
+
+body.dark .project-card h3 {
+    color: var(--color-primary-light);
+}
+
+.project-card p {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: var(--space-md);
+}
+
+body.dark .project-card p {
+    color: #94A3B8;
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: var(--space-md);
+}
+
+/* Tech Badges upgraded */
+.tech-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: var(--badge-bg-active, #F1F5F9);
+    color: var(--badge-color-active, #475569);
+    border: 1px solid var(--badge-border-active, #E2E8F0);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                background-color 0.3s ease, 
+                color 0.3s ease, 
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.tech-badge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 25%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    transition: none;
+}
+
+.tech-badge:hover::after {
+    left: 150%;
+    transition: left 0.7s ease-in-out;
+}
+
+.tech-badge:hover {
+    transform: translateY(-3px) scale(1.08);
+    background: var(--badge-color-active);
+    color: #FFFFFF !important;
+    border-color: var(--badge-color-active);
+    box-shadow: 0 4px 12px var(--badge-glow-active);
+}
+
+/* Badge specific color scopes (Light Mode variables by default) */
+.badge-cpp {
+    --badge-bg-active: var(--badge-cpp-bg);
+    --badge-color-active: var(--badge-cpp-color);
+    --badge-border-active: var(--badge-cpp-border);
+    --badge-glow-active: var(--badge-cpp-glow);
+}
+.badge-java {
+    --badge-bg-active: var(--badge-java-bg);
+    --badge-color-active: var(--badge-java-color);
+    --badge-border-active: var(--badge-java-border);
+    --badge-glow-active: var(--badge-java-glow);
+}
+.badge-python {
+    --badge-bg-active: var(--badge-python-bg);
+    --badge-color-active: var(--badge-python-color);
+    --badge-border-active: var(--badge-python-border);
+    --badge-glow-active: var(--badge-python-glow);
+}
+.badge-swift {
+    --badge-bg-active: var(--badge-swift-bg);
+    --badge-color-active: var(--badge-swift-color);
+    --badge-border-active: var(--badge-swift-border);
+    --badge-glow-active: var(--badge-swift-glow);
+}
+.badge-dart {
+    --badge-bg-active: var(--badge-dart-bg);
+    --badge-color-active: var(--badge-dart-color);
+    --badge-border-active: var(--badge-dart-border);
+    --badge-glow-active: var(--badge-dart-glow);
+}
+.badge-db {
+    --badge-bg-active: var(--badge-db-bg);
+    --badge-color-active: var(--badge-db-color);
+    --badge-border-active: var(--badge-db-border);
+    --badge-glow-active: var(--badge-db-glow);
+}
+.badge-network {
+    --badge-bg-active: var(--badge-network-bg);
+    --badge-color-active: var(--badge-network-color);
+    --badge-border-active: var(--badge-network-border);
+    --badge-glow-active: var(--badge-network-glow);
+}
+.badge-asm {
+    --badge-bg-active: var(--badge-asm-bg);
+    --badge-color-active: var(--badge-asm-color);
+    --badge-border-active: var(--badge-asm-border);
+    --badge-glow-active: var(--badge-asm-glow);
+}
+.badge-web {
+    --badge-bg-active: var(--badge-web-bg);
+    --badge-color-active: var(--badge-web-color);
+    --badge-border-active: var(--badge-web-border);
+    --badge-glow-active: var(--badge-web-glow);
+}
+
+/* ── PROJECT FILTERS ── */
+.project-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: var(--space-md);
+    justify-content: center;
+}
+
+.filter-btn {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 30px;
+    background: var(--color-surface);
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: var(--color-primary);
+    color: #FFFFFF !important;
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+body.dark .filter-btn.active {
+    background: var(--color-primary-light);
+    color: #0F172A !important;
+    border-color: var(--color-primary-light);
+    box-shadow: 0 4px 12px rgba(96, 165, 250, 0.3);
+}
+
+.project-link {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    transition: color var(--transition);
+}
+
+.project-link:hover {
+    color: var(--color-cta);
+}
+
+.project-link svg {
+    transition: transform var(--transition);
+}
+
+.project-link:hover svg {
+    transform: translateX(3px);
+}
+
+/* CV Butonu Tasarımı */
+.btn-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--color-primary);
+    color: #FFFFFF !important;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.btn-cv:hover {
+    background: var(--color-primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+}
+
+.btn-cv svg {
+    transition: transform var(--transition);
+    stroke: #FFFFFF !important;
+}
+
+.btn-cv:hover svg {
+    transform: translateY(2px);
+}
+
+body.dark .btn-cv {
+    background: var(--color-primary-light);
+    color: #0F172A !important;
+    box-shadow: 0 4px 14px rgba(96, 165, 250, 0.3);
+}
+
+body.dark .btn-cv svg {
+    stroke: #0F172A !important;
+}
+
+body.dark .btn-cv:hover {
+    background: #93C5FD;
+    box-shadow: 0 6px 20px rgba(96, 165, 250, 0.4);
+}
+
+.hero-actions, .bio-actions {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+}
+
 
 @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
